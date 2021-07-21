@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="todo-container">
+      <div class="todo-wrap">
+        <Header></Header>
+        <router-view></router-view>
+        <Footer></Footer>
+      </div>
+    </div>
+    <line-chart :xData="xData"></line-chart>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "@/components/Header";
+import lineChart from "@/components/lineChart";
+import Footer from "@/components/Footer";
+import "@/assets/css/App.css"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Footer,
+    Header,
+    lineChart
+  },
+  data(){
+    return{
+      xData:['1','Tus','Wed','Thu','Fri','Sat','Sun']
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
